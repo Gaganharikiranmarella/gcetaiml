@@ -3,28 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Long Scrollable Website with Image Slider</title>
+    <title>GCET AIML</title>
+    <script src="https://kit.fontawesome.com/YOUR-KIT-ID.js" crossorigin="anonymous"></script> 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Arial, sans-serif; scroll-behavior: smooth; }
         .section { height: 100vh; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white; }
         .section:nth-child(odd) { background: #3498db; }
         .section:nth-child(even) { background: #2ecc71; }
-        nav { position: fixed; top: 0; width: 100%; background: rgba(0, 0, 0, 0.7); padding: 15px; text-align: center; z-index: 100; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; font-size: 1.2rem; }
-        
+
         /* Header */
-        .header { width: 100%; height: 80px; background-color: blue; display: flex; align-items: center; padding: 10px; position: fixed; top: 0; left: 0; z-index: 20; }
-        .logo { width: 60px; height: 60px; margin-right: 15px; }
-        .header-text { font-size: 20px; color: white; font-weight: bold; }
-        
+        .header { 
+            width: 100%; 
+            height: 80px; 
+            background-color: rgb(0, 0, 0); 
+            display: flex; 
+            align-items: center; 
+            padding: 10px; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            z-index: 20; 
+            justify-content: space-between; 
+        }
+        .logo { width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; }
+        .header-text { 
+            font-size: 20px; 
+            color: white; 
+            font-weight: bold; 
+            margin-left: 15px;
+            white-space: nowrap;
+        }
+
+        /* Social Media Icons */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
         /* Fullscreen Image Slider */
         .slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; transition: background-image 0.5s ease-in-out; z-index: 1; }
         .middle-text { position: absolute; top: -100px; left: 50%; transform: translateX(-50%); font-size: 28px; font-weight: bold; color: white; opacity: 0; z-index: 10; display: none; }
         .btn { position: absolute; top: 50%; transform: translateY(-50%); width: 80px; height: 80px; background: rgba(0, 0, 0, 0.5); color: white; border: none; font-size: 32px; cursor: pointer; z-index: 10; }
         .left { left: 20px; }
         .right { right: 20px; }
-        
+
         @keyframes dropText {
             0% { top: -100px; opacity: 0; }
             50% { top: 50%; opacity: 1; }
@@ -38,12 +66,20 @@
     </style>
 </head>
 <body>
-    <nav>
-        <a href="#section1">Home</a>
-        <a href="#section2">About</a>
-        <a href="#section3">Services</a>
-        <a href="#section4">Contact</a>
-    </nav>
+    <div class="header">
+        <div style="display: flex; align-items: center;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI7G7LLqyNkPxdAUqWFNDo9N_EeZ_WA0YThg&s" alt="Logo" class="logo">
+            <div class="header-text">
+                <span>Geethanjali College of Engineering and Technology</span>
+            </div>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
 
     <!-- Section 1: Fullscreen Image Slider -->
     <div id="section1" class="section" style="position: relative;">
@@ -53,13 +89,42 @@
         <button class="btn right" id="rightBtn" onclick="nextImage()">&#10095;</button>
     </div>
 
-    <!-- Section 2: Empty -->
-    <div id="section2" class="section">About Section</div>
+    <!-- Section 2: About Us -->
+    <div id="section2" class="section" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+        <section class="text-section" style="flex: 1; font-size: 15px; text-align: left; margin-left: 20px;">
+            <h1 class="text-1xl font-bold text-blue-900">About Us</h1><br>
+            <h2 class="text-2xl font-bold text-blue-900">AI & ML</h2><br>
+            <h2>B.Tech CSE-AI&ML Department Overview</h2>  <br>
     
-    <!-- Section 3: Empty -->
+            - Year of Establishment: 2020   <br>
+            
+            <h2>Department Head</h2> <br>
+            - Dr. G. Bindu Madhavi <br>
+            - Experience: 13 years (Teaching & Research)<br>
+            - Education: Ph.D. (Digital Image Processing, JNTUH, 2020), M.Tech (JNTU, 2011)  <br>
+            - Publications: 30+ research papers, book chapter, 3 patents  <br>
+            - Expertise: Digital Image Processing, Machine Learning, Deep Learning <br>  
+            - Skills: Strong leadership, organization, and negotiation  <br>
+            
+            <h2>Overall Faculty and Staff</h2><br>
+            - <h4>Faculty:</h4>  <br>
+            - 2 Professors, 8 Associate Professors  <br>
+            - 6 Senior Assistant Professors, 24 Assistant Professors <br> 
+            - 7 Doctorates  <br>
+            - <h4>Support Staff:</h4> <br>  
+            - Lab Assistants, Programmers, System Administrator <br> 
+            <a href="https://gcet.edu.in/ai&ml">More</a> 
+        </section>
+    
+        <div class="image-section" style="flex: 1; text-align: center;">
+            <img src="image-url-here.jpg" style="max-width: 90%; height: auto; border: 2px solid #blue;">
+        </div>
+    </div>
+    
+    <!-- Section 3: Services -->
     <div id="section3" class="section">Services Section</div>
-    
-    <!-- Section 4: Empty -->
+
+    <!-- Section 4: Contact -->
     <div id="section4" class="section">Contact Section</div>
 
     <script>
@@ -76,34 +141,25 @@
         const middleText = document.getElementById('middleText');
 
         function updateImage() {
-            slider.style.backgroundImage = url(${images[index]});
+            slider.style.backgroundImage = `url(${images[index]})`;
             if (index === 1) {
                 middleText.style.display = "block";
-                middleText.style.animation = "dropText 2s ease-out forwards";
-                setTimeout(() => {
-                    middleText.style.animation = "fadeOutText 2s ease-out forwards";
-                }, 3000);
+                middleText.style.animation = "dropText 1s forwards";
             } else {
-                middleText.style.display = "none";
+                middleText.style.animation = "fadeOutText 1s forwards";
             }
         }
-        
-        function prevImage() {
-            index = (index - 1 + images.length) % images.length;
-            updateImage();
-        }
-        
+
         function nextImage() {
             index = (index + 1) % images.length;
             updateImage();
         }
-        
-        function autoSlide() {
-            nextImage();
-            setTimeout(autoSlide, 5000);
+
+        function prevImage() {
+            index = (index - 1 + images.length) % images.length;
+            updateImage();
         }
-        
-        setTimeout(autoSlide, 5000);
+
         updateImage();
     </script>
 </body>
