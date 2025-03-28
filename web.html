@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Long Scrollable Website with Image Slider</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; scroll-behavior: smooth; }
+        .section { height: 100vh; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white; }
+        .section:nth-child(odd) { background: #3498db; }
+        .section:nth-child(even) { background: #2ecc71; }
+        nav { position: fixed; top: 0; width: 100%; background: rgba(0, 0, 0, 0.7); padding: 15px; text-align: center; z-index: 100; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-size: 1.2rem; }
+        
+        /* Header */
+        .header { width: 100%; height: 80px; background-color: blue; display: flex; align-items: center; padding: 10px; position: fixed; top: 0; left: 0; z-index: 20; }
+        .logo { width: 60px; height: 60px; margin-right: 15px; }
+        .header-text { font-size: 20px; color: white; font-weight: bold; }
+        
+        /* Fullscreen Image Slider */
+        .slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; transition: background-image 0.5s ease-in-out; z-index: 1; }
+        .middle-text { position: absolute; top: -100px; left: 50%; transform: translateX(-50%); font-size: 28px; font-weight: bold; color: white; opacity: 0; z-index: 10; display: none; }
+        .btn { position: absolute; top: 50%; transform: translateY(-50%); width: 80px; height: 80px; background: rgba(0, 0, 0, 0.5); color: white; border: none; font-size: 32px; cursor: pointer; z-index: 10; }
+        .left { left: 20px; }
+        .right { right: 20px; }
+        
+        @keyframes dropText {
+            0% { top: -100px; opacity: 0; }
+            50% { top: 50%; opacity: 1; }
+            100% { top: 50%; opacity: 1; }
+        }
+        
+        @keyframes fadeOutText {
+            0% { top: 50%; opacity: 1; }
+            100% { top: 100vh; opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#section1">Home</a>
+        <a href="#section2">About</a>
+        <a href="#section3">Services</a>
+        <a href="#section4">Contact</a>
+    </nav>
+
+    <!-- Section 1: Fullscreen Image Slider -->
+    <div id="section1" class="section" style="position: relative;">
+        <div class="slider" id="slider"></div>
+        <div class="middle-text" id="middleText">Learn, Lead, and Innovate</div>
+        <button class="btn left" id="leftBtn" onclick="prevImage()">&#10094;</button>
+        <button class="btn right" id="rightBtn" onclick="nextImage()">&#10095;</button>
+    </div>
+
+    <!-- Section 2: Empty -->
+    <div id="section2" class="section">About Section</div>
+    
+    <!-- Section 3: Empty -->
+    <div id="section3" class="section">Services Section</div>
+    
+    <!-- Section 4: Empty -->
+    <div id="section4" class="section">Contact Section</div>
+
+    <script>
+        const images = [
+            'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=1920&h=1080&fit=crop',
+            'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&h=1080&fit=crop',
+            'https://images.unsplash.com/photo-1494475673543-6a6a27143fc8?w=1920&h=1080&fit=crop',
+            'https://images.unsplash.com/photo-1521747116042-5a810fda9664?w=1920&h=1080&fit=crop',
+            'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&h=1080&fit=crop'
+        ];
+
+        let index = 0;
+        const slider = document.getElementById('slider');
+        const middleText = document.getElementById('middleText');
+
+        function updateImage() {
+            slider.style.backgroundImage = url(${images[index]});
+            if (index === 1) {
+                middleText.style.display = "block";
+                middleText.style.animation = "dropText 2s ease-out forwards";
+                setTimeout(() => {
+                    middleText.style.animation = "fadeOutText 2s ease-out forwards";
+                }, 3000);
+            } else {
+                middleText.style.display = "none";
+            }
+        }
+        
+        function prevImage() {
+            index = (index - 1 + images.length) % images.length;
+            updateImage();
+        }
+        
+        function nextImage() {
+            index = (index + 1) % images.length;
+            updateImage();
+        }
+        
+        function autoSlide() {
+            nextImage();
+            setTimeout(autoSlide, 5000);
+        }
+        
+        setTimeout(autoSlide, 5000);
+        updateImage();
+    </script>
+</body>
+</html>
