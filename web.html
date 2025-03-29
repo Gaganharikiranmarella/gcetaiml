@@ -71,6 +71,80 @@
             0% { top: 50%; opacity: 1; }
             100% { top: 100vh; opacity: 0; }
         }
+
+        .text-section {
+            flex: 1;
+            background: #ffffff;
+            padding: 30px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            text-align: left;
+        }
+        
+        .text-section h1 {
+            font-size: 26px;
+            color: #1a73e8;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .text-section h2 {
+            font-size: 22px;
+            color: #0f5ac3;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .text-section h3 {
+            font-size: 20px;
+            color: #333;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        
+        .text-section h4 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #555;
+            margin-top: 10px;
+        }
+        
+        .text-section p, .text-section ul {
+            font-size: 16px;
+            color: #444;
+        }
+        
+        .text-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .text-section ul li {
+            background: url('https://cdn-icons-png.flaticon.com/16/1828/1828765.png') no-repeat left center;
+            background-size: 16px;
+            padding-left: 25px;
+            margin-bottom: 8px;
+        }
+        
+        .more-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 15px;
+            background: #1a73e8;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .more-link:hover {
+            background: #0f5ac3;
+        }
+        
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-POVmBch9Ih8vcj7N9TrFpqzsuq4FxI1MG1zvAfcqcF/a4xC5f5z5ltqLPsN5Zj1L" crossorigin="anonymous">
     
@@ -121,29 +195,37 @@
 
     <!-- Section 2: About Us -->
     <div id="section2" class="section" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
-        <section class="text-section" style="flex: 1; font-size: 15px; text-align: left; margin-left: 20px;">
-            <h1 class="text-1xl font-bold text-blue-900">About Us</h1><br>
-            <h2 class="text-2xl font-bold text-blue-900">AI & ML</h2><br>
-            <h2>B.Tech CSE-AI&ML Department Overview</h2>  <br>
-    
-            - Year of Establishment: 2020   <br>
-            
-            <h2>Department Head</h2> <br>
-            - Dr. G. Bindu Madhavi <br>
-            - Experience: 13 years (Teaching & Research)<br>
-            - Education: Ph.D. (Digital Image Processing, JNTUH, 2020), M.Tech (JNTU, 2011)  <br>
-            - Publications: 30+ research papers, book chapter, 3 patents  <br>
-            - Expertise: Digital Image Processing, Machine Learning, Deep Learning <br>  
-            - Skills: Strong leadership, organization, and negotiation  <br>
-            
-            <h2>Overall Faculty and Staff</h2><br>
-            - <h4>Faculty:</h4>  <br>
-            - 2 Professors, 8 Associate Professors  <br>
-            - 6 Senior Assistant Professors, 24 Assistant Professors <br> 
-            - 7 Doctorates  <br>
-            - <h4>Support Staff:</h4> <br>  
-            - Lab Assistants, Programmers, System Administrator <br> 
-            <a href="https://gcet.edu.in/ai&ml">More</a> 
+        <section class="text-section">
+            <h1>About Us</h1>
+            <h2>AI & ML</h2>
+            <h3>B.Tech CSE-AI&ML Department Overview</h3>
+        
+            <p><strong>Year of Establishment:</strong> 2020</p>
+        
+            <h3>Department Head</h3>
+            <p><strong>Dr. G. Bindu Madhavi</strong></p>
+            <ul>
+                <li>Experience: 13 years (Teaching & Research)</li>
+                <li>Education: Ph.D. (Digital Image Processing, JNTUH, 2020), M.Tech (JNTU, 2011)</li>
+                <li>Publications: 30+ research papers, book chapter, 3 patents</li>
+                <li>Expertise: Digital Image Processing, Machine Learning, Deep Learning</li>
+                <li>Skills: Strong leadership, organization, and negotiation</li>
+            </ul>
+        
+            <h3>Overall Faculty and Staff</h3>
+            <h4>Faculty:</h4>
+            <ul>
+                <li>2 Professors, 8 Associate Professors</li>
+                <li>6 Senior Assistant Professors, 24 Assistant Professors</li>
+                <li>7 Doctorates</li>
+            </ul>
+        
+            <h4>Support Staff:</h4>
+            <ul>
+                <li>Lab Assistants, Programmers, System Administrator</li>
+            </ul>
+        
+            <a href="https://gcet.edu.in/ai&ml" class="more-link">More</a>
         </section>
     
         <div class="image-section" style="flex: 1; text-align: center;">
