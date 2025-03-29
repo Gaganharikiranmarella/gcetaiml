@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GCET AIML</title>
-    <script src="https://kit.fontawesome.com/YOUR-KIT-ID.js" crossorigin="anonymous"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous"></script>                
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Arial, sans-serif; scroll-behavior: smooth; }
@@ -44,7 +44,9 @@
             color: white;
             font-size: 1.5rem;
             text-decoration: none;
+            margin-right: 15px; /* Added spacing */
         }
+        
 
         /* Fullscreen Image Slider */
         .slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; transition: background-image 0.5s ease-in-out; z-index: 1; }
@@ -78,6 +80,7 @@
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
         </div>
     </div>
 
@@ -117,23 +120,80 @@
         </section>
     
         <div class="image-section" style="flex: 1; text-align: center;">
-            <img src="image-url-here.jpg" style="max-width: 90%; height: auto; border: 2px solid #blue;">
+            <img src="image-url-here.jpg" style="max-width: 60%; height: auto; border: 2px solid #blue;">
         </div>
     </div>
     
     <!-- Section 3: Services -->
-    <div id="section3" class="section">Services Section</div>
+    <div id="section3" class="section" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+
+        <!-- Button Container -->
+        <div class="button-container" style="display: flex; gap: 15px; margin-bottom: 20px;">
+            <button class="nav-btn">Admissions</button>
+            <button class="nav-btn">Research</button>
+            <button class="nav-btn">Internships</button>
+            <button class="nav-btn">Placements</button>
+            <button class="nav-btn">Innovation & Entrepreneurship</button>
+            <button class="nav-btn">Alumni</button>
+        </div>
+    
+        <!-- Slideshow Container -->
+        <div class="slideshow-container">
+            <img id="slideshow-img" src="image1.jpg" alt="Slideshow Image">
+        </div>
+    
+    </div>
+    
+    <!-- Button & Slideshow Styling -->
+    <style>
+        .nav-btn {
+            padding: 10px 15px;
+            font-size: 14px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            background-color: #1a73e8;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+    
+        .nav-btn:hover {
+            background-color: #0f5ac3;
+        }
+    
+        /* Slideshow Styling */
+        .slideshow-container {
+            width: 60%;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+    
+        .slideshow-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 1s ease-in-out;
+        }
+    </style>
+    
 
     <!-- Section 4: Contact -->
     <div id="section4" class="section">Contact Section</div>
 
     <script>
         const images = [
-            'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=1920&h=1080&fit=crop',
-            'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&h=1080&fit=crop',
-            'https://images.unsplash.com/photo-1494475673543-6a6a27143fc8?w=1920&h=1080&fit=crop',
-            'https://images.unsplash.com/photo-1521747116042-5a810fda9664?w=1920&h=1080&fit=crop',
-            'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&h=1080&fit=crop'
+            'https://i.pinimg.com/originals/07/44/76/074476209bb41a39913981195e17e363.gif',
+            'https://i.pinimg.com/originals/07/44/76/074476209bb41a39913981195e17e363.gif',
+            'https://i.pinimg.com/originals/07/44/76/074476209bb41a39913981195e17e363.gif',
+            'https://i.pinimg.com/originals/07/44/76/074476209bb41a39913981195e17e363.gif',
+            'https://i.pinimg.com/originals/07/44/76/074476209bb41a39913981195e17e363.gif',
         ];
 
         let index = 0;
@@ -161,6 +221,30 @@
         }
 
         updateImage();
+    </script>
+    <script>
+        const slideshowImages = [
+            'image1.jpg',
+            'image2.jpg',
+            'image3.jpg',
+            'image4.jpg',
+            'image5.jpg',
+            'image6.jpg'
+        ];
+    
+        let slideIndex = 0;
+        const slideshowImg = document.getElementById('slideshow-img');
+    
+        function changeSlide() {
+            slideIndex = (slideIndex + 1) % slideshowImages.length;
+            slideshowImg.style.opacity = 0; // Fade out effect
+            setTimeout(() => {
+                slideshowImg.src = slideshowImages[slideIndex];
+                slideshowImg.style.opacity = 1; // Fade in effect
+            }, 500);
+        }
+    
+        setInterval(changeSlide, 2000); // Change every 2 seconds
     </script>
 </body>
 </html>
