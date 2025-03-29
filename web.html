@@ -144,6 +144,81 @@
         .more-link:hover {
             background: #0f5ac3;
         }
+        /* Contact Section */
+.contact-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: #121212;  /* Dark mode background */
+    color: white;
+    padding: 40px 60px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Left Section - Address */
+.contact-left {
+    flex: 1;
+    max-width: 50%;
+}
+
+.contact-left h2 {
+    font-size: 24px;
+    color: #d32f2f;  /* Red for emphasis */
+    margin-bottom: 10px;
+}
+
+.contact-left p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.contact-left a {
+    color: #ff5252;  /* Highlight email */
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-left a:hover {
+    color: #ff1744;
+}
+
+/* Right Section - Quick Links */
+.contact-right {
+    flex: 1;
+    max-width: 40%;
+}
+
+.contact-right h2 {
+    font-size: 24px;
+    color: #ffcc00;  /* Golden for contrast */
+    margin-bottom: 10px;
+}
+
+.quick-links {
+    list-style: none;
+    padding: 0;
+}
+
+.quick-links li {
+    margin-bottom: 8px;
+}
+
+.quick-links a {
+    color: #1e90ff;  /* Bright blue links */
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.quick-links a:hover {
+    color: #ff1744;  /* Red on hover */
+    transform: translateX(5px);
+}
+
         
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-POVmBch9Ih8vcj7N9TrFpqzsuq4FxI1MG1zvAfcqcF/a4xC5f5z5ltqLPsN5Zj1L" crossorigin="anonymous">
@@ -294,7 +369,32 @@
     
 
     <!-- Section 4: Contact -->
-    <div id="section4" class="section">Contact Section</div>
+    <div id="section4" class="section">
+        <section class="contact-section">
+            <!-- Left Section - Address -->
+            <div class="contact-left">
+                <h2>📍 ADDRESS</h2>
+                <p>Geethanjali College of Engineering and Technology</p>
+                <p>Cheeryal, Keesara, Medchal District</p>
+                <p>Telangana, India - 501 301</p>
+                <p>📧 Email: <a href="mailto:info@gcet.edu.in">info@gcet.edu.in</a></p>
+            </div>
+        
+            <!-- Right Section - Quick Links -->
+            <div class="contact-right">
+                <h2>🔗 QUICK LINKS</h2>
+                <ul class="quick-links">
+                    <li><a href="https://gcet.edu.in/img/downloads/NIRF%202025.pdf">NIRF</a></li>
+                    <li><a href="https://gcet.edu.in/img/downloads/AICTE_LOI.pdf">AICTE Letter Of Intent</a></li>
+                    <li><a href="#">NAAC</a></li>
+                    <li><a href="#">NBA</a></li>
+                    <li><a href="https://gcet.edu.in/naac/7.1.10_code%20of%20conduct.pdf">Code Of Conduct</a></li>
+                    <li><a href="https://gcet.edu.in/img/downloads/Roles%20and%20Responsibilities.pdf">Roles and Responsibilities</a></li>
+                </ul>
+            </div>
+        </section>
+        
+    </div>
 
     <script>
         const images = [
