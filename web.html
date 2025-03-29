@@ -66,16 +66,30 @@
             100% { top: 100vh; opacity: 0; }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-POVmBch9Ih8vcj7N9TrFpqzsuq4FxI1MG1zvAfcqcF/a4xC5f5z5ltqLPsN5Zj1L" crossorigin="anonymous">
+    
+    <!-- Your other CSS files -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="header">
         <div style="display: flex; align-items: center;">
+            <i class="fas fa-bars" style="color: white; font-size: 1.5rem; margin-right: 15px; cursor: pointer;"></i>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI7G7LLqyNkPxdAUqWFNDo9N_EeZ_WA0YThg&s" alt="Logo" class="logo">
             <div class="header-text" id="titleText">
                 <span>Geethanjali College of Engineering and Technology</span>
             </div>
         </div>
+    
+        <div class="header-icons" style="display: flex; align-items: center; gap: 20px;">
+            <a href="https://www.facebook.com/gcetportal/" style="color: white; font-size: 1.4rem;"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/gctcportal" style="color: white; font-size: 1.4rem;"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/gctcportal/?hl=en" style="color: white; font-size: 1.4rem;"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/school/gctcportal/posts/?feedView=all" style="color: white; font-size: 1.4rem;"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/watch?v=U_lvSRgBeoA&t=69s" style="color: white; font-size: 1.4rem;"><i class="fab fa-youtube"></i></a>
+        </div>
     </div>
+    
     
     <style>
         .fade-out {
@@ -90,15 +104,7 @@
             transition: all 0.5s ease-in-out;
         }
     </style>
-        <div class="social-icons">
-            <a href="https://www.facebook.com/gcetportal/"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://x.com/gctcportal"><i class="fab fa-x-twitter"></i></a>
-            <a href="https://www.instagram.com/gctcportal/?hl=en"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/school/gctcportal/posts/?feedView=all"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://www.youtube.com/watch?v=U_lvSRgBeoA&t=69s"><i class="fa-brands fa-youtube"></i></a>
-        </div>
-    </div>
-
+ 
     <!-- Section 1: Fullscreen Image Slider -->
     <div id="section1" class="section" style="position: relative;">
         <div class="slider" id="slider"></div>
@@ -286,6 +292,6 @@
         }
     
         setInterval(switchTitle, 2000);
-    </script>
+    </script>   
 </body>
 </html>
