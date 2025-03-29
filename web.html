@@ -71,10 +71,25 @@
     <div class="header">
         <div style="display: flex; align-items: center;">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI7G7LLqyNkPxdAUqWFNDo9N_EeZ_WA0YThg&s" alt="Logo" class="logo">
-            <div class="header-text">
+            <div class="header-text" id="titleText">
                 <span>Geethanjali College of Engineering and Technology</span>
             </div>
         </div>
+    </div>
+    
+    <style>
+        .fade-out {
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+        }
+    
+        .fade-in {
+            transform: translateY(0);
+            opacity: 1;
+            transition: all 0.5s ease-in-out;
+        }
+    </style>
         <div class="social-icons">
             <a href="https://www.facebook.com/gcetportal/"><i class="fab fa-facebook-f"></i></a>
             <a href="https://x.com/gctcportal"><i class="fab fa-x-twitter"></i></a>
@@ -245,6 +260,32 @@
         }
     
         setInterval(changeSlide, 2000); // Change every 2 seconds
+    </script>
+
+    <script>
+        const titleText = document.getElementById("titleText");
+        let toggle = true;
+    
+        function switchTitle() {
+            titleText.classList.add("fade-out");
+    
+            setTimeout(() => {
+                titleText.innerHTML = toggle 
+                    ? "<span>AIML Department</span>" 
+                    : "<span>Geethanjali College of Engineering and Technology</span>";
+                
+                titleText.classList.remove("fade-out");
+                titleText.classList.add("fade-in");
+    
+                setTimeout(() => {
+                    titleText.classList.remove("fade-in"); // Ensure it resets for next cycle
+                }, 500);
+    
+                toggle = !toggle;
+            }, 500);
+        }
+    
+        setInterval(switchTitle, 2000);
     </script>
 </body>
 </html>
