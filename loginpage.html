@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIML Department</title>
+
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Container */
+        .container {
+            display: flex;
+            height: 90vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 20%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Sidebar Buttons */
+        .sidebar button {
+            width: 100%;
+            padding: 12px;
+            margin: 5px 0;
+            border: none;
+            background: #ff5733;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+
+        .sidebar button:hover {
+            background: #c70039;
+        }
+
+        /* Content Area */
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        /* Default Message */
+        #default-message {
+            display: block;
+        }
+
+        /* Content Boxes */
+        .content-box {
+            display: none;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        /* Links */
+        .content-box a {
+            color: #ffdd57;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .content-box a:hover {
+            color: #ffd700;
+            text-decoration: underline;
+        }
+    </style>
+
+    <script>
+        function showContent(num) {
+            // Hide default message
+            document.getElementById("default-message").style.display = "none";
+
+            // Hide all content boxes
+            let contents = document.querySelectorAll(".content-box");
+            contents.forEach(content => content.style.display = "none");
+
+            // Show selected content
+            document.getElementById(`content-${num}`).style.display = "block";
+        }
+    </script>
+
+</head>
+<body>
+    <header>AIML Department</header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <button onclick="showContent(1)">Time Tables</button>
+            <button onclick="showContent(2)">Exams</button>
+            <button onclick="showContent(3)">PYQ</button>
+            <button onclick="showContent(4)">Announcements</button>
+            <button onclick="showContent(5)">Training & Placement</button>
+            <button onclick="showContent(6)">Clubs and Events</button>
+        </aside>
+
+        <main class="content">
+            <div id="default-message">
+                <h2>Select an option from the following</h2>
+                <p style="font-size: 2rem;">👉</p>
+            </div>
+
+            <div id="content-1" class="content-box"><a href="" target="_blank"></a></div>
+            <div id="content-2" class="content-box"><a href="" target="_blank"></a></div>
+            <div id="content-3" class="content-box"><a href="" target="_blank"></a></div>
+            <div id="content-4" class="content-box"><a href="" target="_blank"></a></div>
+            <div id="content-5" class="content-box"><a href="" target="_blank"></a></div>
+            <div id="content-6" class="content-box"><a href="" target="_blank"></a></div>
+            <div id="content-7" class="content-box"><a href="" target="_blank"></a></div>
+        </main>
+    </div>
+</body>
+</html>
