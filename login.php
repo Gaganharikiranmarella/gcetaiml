@@ -1,22 +1,36 @@
 <?php
 session_start();
+$conn = new mysqli("localhost", "root", "", "user_db");
 
-// Hardcoded username and password
-$valid_username = "admin";
-$valid_password = "password123";
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-// Check if form is submitted
+// If login form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
+    $username = $conn->real_escape_string($_POST['username']);
     $password = $_POST['password'];
 
-    if ($username === $valid_username && $password === $valid_password) {
-        echo "<script>window.open('https://example.com', '_blank');</script>"; // Redirects to new website
-        exit();
+    // Fetch user from database
+    $sql = "SELECT * FROM users WHERE username='$username'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+        
+        // Verify password
+        if (password_verify($password, $row['password'])) {
+            echo "<script>window.open('https://example.com', '_blank');</script>"; // Redirects to new website
+            exit();
+        } else {
+            $error = "Invalid username or password!";
+        }
     } else {
         $error = "Invalid username or password!";
     }
 }
+$conn->close();
 ?>
 
 <!DOCTYPE html>
