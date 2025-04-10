@@ -4,133 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GCET AIML</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous"></script>                
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-POVmBch9Ih8vcj7N9TrFpqzsuq4FxI1MG1zvAfcqcF/a4xC5f5z5ltqLPsN5Zj1L" crossorigin="anonymous">
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Arial, sans-serif; scroll-behavior: smooth; }
         .section { height: 100vh; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white; }
         .section:nth-child(odd) { background: #3498db; }
-        .section:nth-child(even) { background: #2ecc71; }
+        .section:nth-child(even) { background: #2ecc71; } /* Note: Section 4 is now footer, different background */
 
         /* Header */
-        .header { 
-            width: 100%; 
-            height: 80px; 
-            background-color: rgb(0, 0, 0); 
-            display: flex; 
-            align-items: center; 
-            padding: 10px; 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            z-index: 20; 
-            justify-content: space-between; 
+        .header {
+            width: 100%;
+            height: 80px;
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 20;
+            justify-content: space-between;
         }
         .logo { width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; }
-        .header-text { 
-            font-size: 20px; 
-            color: white; 
-            font-weight: bold; 
+        .header-text {
+            font-size: 20px;
+            color: white;
+            font-weight: bold;
             margin-left: 15px;
             white-space: nowrap;
         }
-        /* About Us Section */
-.about-section {
-    flex: 1;
-    background: #ffffff;
-    padding: 20px;  /* Reduced padding for a compact look */
-    margin: 15px;  /* Reduced margin */
-    border-radius: 8px;  /* Slightly smaller border-radius */
-    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
-    font-size: 14px;  /* Reduced font size */
-    line-height: 1.5;
-    color: #333;
-    text-align: left;
-}
+        /* Header Title Fade Effect Styles (from body style block in original) */
+        .fade-out {
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+        }
+        .fade-in {
+            transform: translateY(0);
+            opacity: 1;
+            transition: all 0.5s ease-in-out;
+        }
 
-/* Headings */
-.about-section h1 {
-    font-size: 22px;  /* Smaller heading */
-    color: #1a73e8;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-.about-section h2 {
-    font-size: 18px;  /* Smaller subheading */
-    color: #0f5ac3;
-    font-weight: bold;
-    margin-bottom: 6px;
-}
-
-.about-section h3 {
-    font-size: 16px;
-    color: #333;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.about-section h4 {
-    font-size: 14px;
-    font-weight: bold;
-    color: #555;
-    margin-top: 8px;
-}
-
-/* Bullet Points */
-.about-section p, .about-section ul {
-    font-size: 14px;
-    color: #444;
-}
-
-.about-section ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.about-section ul li {
-    background: url('https://cdn-icons-png.flaticon.com/16/1828/1828765.png') no-repeat left center;
-    background-size: 14px; /* Smaller icons */
-    padding-left: 22px;  /* Adjusted padding */
-    margin-bottom: 5px;
-}
-
-/* "More" Link */
-.more-link {
-    display: inline-block;
-    margin-top: 10px;  /* Reduced spacing */
-    padding: 8px 12px;  /* Smaller button */
-    background: #1a73e8;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;  /* Slightly smaller */
-    font-size: 13px;
-    transition: background 0.3s;
-}
-
-.more-link:hover {
-    background: #0f5ac3;
-}
-
-
-        /* Social Media Icons */
-        .social-icons {
+        /* Social Media Icons (Header) - Note: Original rule, but styles applied inline in HTML */
+        .social-icons { /* This class isn't directly used in the header HTML provided */
             display: flex;
             gap: 15px;
         }
         .social-icons a {
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.5rem; /* Overridden by inline style */
             text-decoration: none;
-            margin-right: 15px; /* Added spacing */
+            margin-right: 15px; /* Added spacing (might conflict with gap) */
         }
         .header-icons {
-            display: flex;
-            align-items: center;
-            gap: 40px; /* Increased gap */
+            /* Rules are applied inline in HTML */
+            /* display: flex; align-items: center; gap: 40px; */ /* Increased gap */
         }
-        
-        
+
 
         /* Fullscreen Image Slider */
         .slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; transition: background-image 0.5s ease-in-out; z-index: 1; }
@@ -138,169 +71,119 @@
         .btn { position: absolute; top: 50%; transform: translateY(-50%); width: 80px; height: 80px; background: rgba(0, 0, 0, 0.5); color: white; border: none; font-size: 32px; cursor: pointer; z-index: 10; }
         .left { left: 20px; }
         .right { right: 20px; }
-
         @keyframes dropText {
             0% { top: -100px; opacity: 0; }
             50% { top: 50%; opacity: 1; }
             100% { top: 50%; opacity: 1; }
         }
-        
         @keyframes fadeOutText {
             0% { top: 50%; opacity: 1; }
             100% { top: 100vh; opacity: 0; }
         }
 
+        /* About Us Section */
+        /* These styles targeted the old .about-section class. Section 2 now uses .text-section */
+        /* Keeping for reference if .about-section class is used elsewhere, otherwise remove */
+        .about-section {
+            flex: 1; background: #ffffff; padding: 20px; margin: 15px;
+            border-radius: 8px; box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
+            font-size: 14px; line-height: 1.5; color: #333; text-align: left;
+        }
+        /* Headings */
+        .about-section h1 { font-size: 22px; color: #1a73e8; font-weight: bold; margin-bottom: 8px; }
+        .about-section h2 { font-size: 18px; color: #0f5ac3; font-weight: bold; margin-bottom: 6px; }
+        .about-section h3 { font-size: 16px; color: #333; font-weight: bold; margin-top: 10px; }
+        .about-section h4 { font-size: 14px; font-weight: bold; color: #555; margin-top: 8px; }
+        /* Bullet Points */
+        .about-section p, .about-section ul { font-size: 14px; color: #444; }
+        .about-section ul { list-style: none; padding-left: 0; }
+        .about-section ul li { background: url('https://cdn-icons-png.flaticon.com/16/1828/1828765.png') no-repeat left center; background-size: 14px; padding-left: 22px; margin-bottom: 5px; }
+        /* "More" Link */
+        /* .about-section .more-link - see combined .more-link style below */
+
+        /* Styles for Section 2 Content Area */
         .text-section {
-            flex: 1;
-            background: #ffffff;
-            padding: 30px;
-            margin: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-            font-size: 16px;
-            line-height: 1.6;
-            color: #333;
-            text-align: left;
+            flex: 1; background: #ffffff; padding: 30px; margin: 20px;
+            border-radius: 10px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            font-size: 16px; line-height: 1.6; color: #333; text-align: left;
         }
-        
-        .text-section h1 {
-            font-size: 26px;
-            color: #1a73e8;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        .text-section h2 {
-            font-size: 22px;
-            color: #0f5ac3;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        .text-section h3 {
-            font-size: 20px;
-            color: #333;
-            font-weight: bold;
-            margin-top: 15px;
-        }
-        
-        .text-section h4 {
-            font-size: 18px;
-            font-weight: bold;
-            color: #555;
-            margin-top: 10px;
-        }
-        
-        .text-section p, .text-section ul {
-            font-size: 16px;
-            color: #444;
-        }
-        
-        .text-section ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .text-section ul li {
-            background: url('https://cdn-icons-png.flaticon.com/16/1828/1828765.png') no-repeat left center;
-            background-size: 16px;
-            padding-left: 25px;
-            margin-bottom: 8px;
-        }
-        
+        .text-section h1 { font-size: 26px; color: #1a73e8; font-weight: bold; margin-bottom: 10px; }
+        .text-section h2 { font-size: 22px; color: #0f5ac3; font-weight: bold; margin-bottom: 10px; }
+        .text-section h3 { font-size: 20px; color: #333; font-weight: bold; margin-top: 15px; }
+        .text-section h4 { font-size: 18px; font-weight: bold; color: #555; margin-top: 10px; }
+        .text-section p, .text-section ul { font-size: 16px; color: #444; }
+        .text-section ul { list-style: none; padding-left: 0; }
+        .text-section ul li { background: url('https://cdn-icons-png.flaticon.com/16/1828/1828765.png') no-repeat left center; background-size: 16px; padding-left: 25px; margin-bottom: 8px; }
+
+        /* Common More Link Style (combines rules from .about-section and .text-section) */
         .more-link {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 15px;
-            background: #1a73e8;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
+            display: inline-block; margin-top: 15px; padding: 10px 15px;
+            background: #1a73e8; color: white; text-decoration: none;
+            border-radius: 5px; transition: background 0.3s; font-size: 14px;
         }
-        
-        .more-link:hover {
-            background: #0f5ac3;
+        .more-link:hover { background: #0f5ac3; }
+
+        /* Styles for Section 3 Buttons and Slideshow (from body style block in original) */
+         .nav-btn {
+            padding: 10px 15px; font-size: 14px; font-weight: bold;
+            border: none; border-radius: 5px; background-color: #1a73e8;
+            color: white; cursor: pointer; transition: 0.3s;
         }
-        /* Contact Section */
-.contact-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    background: #121212;  /* Dark mode background */
-    color: white;
-    padding: 40px 60px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-}
+        .nav-btn:hover { background-color: #0f5ac3; }
+        /* Slideshow Styling */
+        .slideshow-container {
+            width: 60%; height: 300px; display: flex; align-items: center;
+            justify-content: center; overflow: hidden; border-radius: 10px;
+            background: #fff; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .slideshow-container img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: opacity 1s ease-in-out;
+        }
 
-/* Left Section - Address */
-.contact-left {
-    flex: 1;
-    max-width: 50%;
-}
+        /* Contact Section (Now Footer) */
+        /* Original .contact-section styles from head are removed as structure changed */
+        /* Below are the styles for the new .footer structure */
+        .footer {
+            background-color: #0d1b2a;
+            color: #ffffff;
+            padding: 50px 20px;
+            font-family: 'Segoe UI', sans-serif;
+            height: auto; /* Let footer size naturally */
+            min-height: 300px;
+        }
+        .footer h2 { color: #f9a825; font-size: 20px; margin-bottom: 15px; }
+        .footer p, .footer a, .footer li {
+            color: #e0e0e0; font-size: 16px; line-height: 1.6;
+            margin: 6px 0; text-decoration: none;
+        }
+        .footer a:hover { color: #fff176; }
+        .footer-container {
+            display: flex; flex-wrap: wrap; justify-content: space-between;
+            max-width: 1200px; margin: auto; gap: 40px; padding-bottom: 40px;
+        }
+        .footer-section { flex: 1 1 300px; min-width: 250px; }
+        .footer ul { list-style: none; padding-left: 0; }
+        .footer li::before { content: "🔗 "; margin-right: 5px; } /* From one of the later styles */
+        .footer-icons { margin-top: 20px; } /* Styling for footer social icons */
+        .footer-icons a {
+             display: inline-block; margin-right: 15px; font-size: 1.6rem;
+             color: #e0e0e0; transition: color 0.3s ease;
+        }
+        .footer-icons a:hover { color: #f9a825; }
+        .footer-bottom {
+            text-align: center; margin-top: 40px; font-size: 14px;
+            color: #bbbbbb; border-top: 1px solid #233; padding-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .footer-container { flex-direction: column; align-items: flex-start; padding-left: 20px; padding-right: 20px; }
+            .footer-section { margin-bottom: 20px; }
+            .footer-bottom { margin-top: 20px; }
+        }
 
-.contact-left h2 {
-    font-size: 24px;
-    color: #d32f2f;  /* Red for emphasis */
-    margin-bottom: 10px;
-}
-
-.contact-left p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #ccc;
-}
-
-.contact-left a {
-    color: #ff5252;  /* Highlight email */
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.contact-left a:hover {
-    color: #ff1744;
-}
-
-/* Right Section - Quick Links */
-.contact-right {
-    flex: 1;
-    max-width: 40%;
-}
-
-.contact-right h2 {
-    font-size: 24px;
-    color: #ffcc00;  /* Golden for contrast */
-    margin-bottom: 10px;
-}
-
-.quick-links {
-    list-style: none;
-    padding: 0;
-}
-
-.quick-links li {
-    margin-bottom: 8px;
-}
-
-.quick-links a {
-    color: #1e90ff;  /* Bright blue links */
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
-}
-
-.quick-links a:hover {
-    color: #ff1744;  /* Red on hover */
-    transform: translateX(5px);
-}
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-POVmBch9Ih8vcj7N9TrFpqzsuq4FxI1MG1zvAfcqcF/a4xC5f5z5ltqLPsN5Zj1L" crossorigin="anonymous">
-    
     <!-- Your other CSS files -->
-    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="styles.css"> --> <!-- Original comment preserved -->
 </head>
 <body>
     <div class="header">
@@ -311,52 +194,35 @@
                 <span>Geethanjali College of Engineering and Technology</span>
             </div>
         </div>
-    
+
         <div class="header-icons" style="display: flex; align-items: center; gap: 20px;">
             <a href="https://www.facebook.com/gcetportal/" style="color: white; font-size: 1.4rem;"><i class="fab fa-facebook-f"></i></a>
             <a href="https://x.com/gctcportal" style="color: white; font-size: 1.4rem;"><i class="fab fa-x-twitter"></i></a>
             <a href="https://www.instagram.com/gctcportal/?hl=en" style="color: white; font-size: 1.4rem;"><i class="fab fa-instagram"></i></a>
             <a href="https://www.linkedin.com/school/gctcportal/posts/?feedView=all" style="color: white; font-size: 1.4rem;"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://www.youtube.com/watch?v=U_lvSRgBeoA&t=69s" style="color: white; font-size: 1.4rem;"><i class="fab fa-youtube"></i></a>
-<a href="login.php" target="_blank">
-    <img src="https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE=" width="30" height="30">
-    <span>Login</span>
-</a>
-
+            <a href="login.php" target="_blank" style="color: white; text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                <img src="https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE=" width="30" height="30" style="border-radius: 50%;">
+                <span>Login</span>
+            </a>
         </div>
     </div>
-    
-    <style>
-        .fade-out {
-            transform: translateY(20px);
-            opacity: 0;
-            transition: all 0.5s ease-in-out;
-        }
-    
-        .fade-in {
-            transform: translateY(0);
-            opacity: 1;
-            transition: all 0.5s ease-in-out;
-        }
-    </style>
- 
+
     <!-- Section 1: Fullscreen Image Slider -->
     <div id="section1" class="section" style="position: relative;">
         <div class="slider" id="slider"></div>
         <div class="middle-text" id="middleText">Learn, Lead, and Innovate</div>
-        <button class="btn left" id="leftBtn" onclick="prevImage()">&#10094;</button>
-        <button class="btn right" id="rightBtn" onclick="nextImage()">&#10095;</button>
+        <button class="btn left" id="leftBtn" onclick="prevImage()">❮</button>
+        <button class="btn right" id="rightBtn" onclick="nextImage()">❯</button>
     </div>
 
     <!-- Section 2: About Us -->
-    <div id="section2" class="section" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
-        <section class="text-section">
+    <div id="section2" class="section" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; height: auto; padding: 40px 0;">
+        <section class="text-section"> <!-- Uses .text-section styles -->
             <h1>About Us</h1>
             <h2>AI & ML</h2>
             <h3>B.Tech CSE-AI&ML Department Overview</h3>
-        
             <p><strong>Year of Establishment:</strong> 2020</p>
-        
             <h3>Department Head</h3>
             <p><strong>Dr. G. Bindu Madhavi</strong></p>
             <ul>
@@ -366,7 +232,6 @@
                 <li>Expertise: Digital Image Processing, Machine Learning, Deep Learning</li>
                 <li>Skills: Strong leadership, organization, and negotiation</li>
             </ul>
-        
             <h3>Overall Faculty and Staff</h3>
             <h4>Faculty:</h4>
             <ul>
@@ -374,25 +239,22 @@
                 <li>6 Senior Assistant Professors, 24 Assistant Professors</li>
                 <li>7 Doctorates</li>
             </ul>
-        
             <h4>Support Staff:</h4>
             <ul>
                 <li>Lab Assistants, Programmers, System Administrator</li>
             </ul>
-        
             <a href="https://gcet.edu.in/ai&ml" class="more-link">More</a>
         </section>
-    
+
         <div class="image-section" style="flex: 1; text-align: center;">
-            <img src="image-url-here.jpg" style="max-width: 60%; height: auto; border: 2px solid #blue;">
+            <img src="image-url-here.jpg" alt="Department Image" style="max-width: 80%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border: 2px solid blue;"> <!-- Original inline style had border -->
         </div>
     </div>
-    
-    <!-- Section 3: Services -->
-    <div id="section3" class="section" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
 
+    <!-- Section 3: Services -->
+    <div id="section3" class="section" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: auto; padding: 60px 0;">
         <!-- Button Container -->
-        <div class="button-container" style="display: flex; gap: 15px; margin-bottom: 20px;">
+        <div class="button-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 30px;">
             <button class="nav-btn">Admissions</button>
             <button class="nav-btn">Research</button>
             <button class="nav-btn">Internships</button>
@@ -400,90 +262,76 @@
             <button class="nav-btn">Innovation & Entrepreneurship</button>
             <button class="nav-btn">Alumni</button>
         </div>
-    
+
         <!-- Slideshow Container -->
         <div class="slideshow-container">
-            <img id="slideshow-img" src="image1.jpg" alt="Slideshow Image">
+            <img id="slideshow-img" src="image1.jpg" alt="Slideshow Image"> <!-- Original src -->
         </div>
-    
     </div>
-    
-    <!-- Button & Slideshow Styling -->
-    <style>
-        .nav-btn {
-            padding: 10px 15px;
-            font-size: 14px;
-            font-weight: bold;
-            border: none;
-            border-radius: 5px;
-            background-color: #1a73e8;
-            color: white;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-    
-        .nav-btn:hover {
-            background-color: #0f5ac3;
-        }
-    
-        /* Slideshow Styling */
-        .slideshow-container {
-            width: 60%;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border-radius: 10px;
-            background: #fff;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-        }
-    
-        .slideshow-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 1s ease-in-out;
-        }
-    </style>
-    
+
+    <!-- Note: Original Code 1 had a <style> block here for .nav-btn and .slideshow-container. -->
+    <!-- Those styles were moved to the <head> in this cleaned version. -->
 
     <!-- Section 4: Contact -->
-    <div id="section4" class="section">
-        <section class="contact-section">
-            <!-- Left Section - Address -->
-            <div class="contact-left">
-                <h2>📍 ADDRESS</h2>
-                <p>Geethanjali College of Engineering and Technology</p>
-                <p>Cheeryal, Keesara, Medchal District</p>
-                <p>Telangana, India - 501 301</p>
-                <p>📧 Email: <a href="mailto:info@gcet.edu.in">info@gcet.edu.in</a></p>
-            </div>
-        
-            <!-- Right Section - Quick Links -->
-            <div class="contact-right">
-                <h2>🔗 QUICK LINKS</h2>
-                <ul class="quick-links">
-                    <li><a href="https://gcet.edu.in/img/downloads/NIRF%202025.pdf">NIRF</a></li>
-                    <li><a href="https://gcet.edu.in/img/downloads/AICTE_LOI.pdf">AICTE Letter Of Intent</a></li>
-                    <li><a href="#">NAAC</a></li>
-                    <li><a href="#">NBA</a></li>
-                    <li><a href="https://gcet.edu.in/naac/7.1.10_code%20of%20conduct.pdf">Code Of Conduct</a></li>
-                    <li><a href="https://gcet.edu.in/img/downloads/Roles%20and%20Responsibilities.pdf">Roles and Responsibilities</a></li>
-                </ul>
-            </div>
-        </section>
-        
-    </div>
+    <!-- This div now acts as the footer -->
+    <div class="footer">
+      <div class="footer-container">
+        <!-- Column 1: Address (Equivalent to original Left Section) -->
+        <div class="footer-section">
+          <h2>📍 ADDRESS</h2>
+          <p>Geethanjali College of Engineering and Technology</p>
+          <p>Cheeryal, Keesara, Medchal District</p>
+          <p>Telangana, India - 501 301</p>
+          <p>📧 Email: <a href="mailto:info@gcet.edu.in">info@gcet.edu.in</a></p>
+          <p>📞 Phone: +91-12345-67890</p> <!-- Phone added in modification -->
+        </div>
+
+        <!-- Column 2: Quick Links (Equivalent to original Right Section) -->
+        <div class="footer-section">
+          <h2>🔗 QUICK LINKS</h2>
+          <ul> <!-- class="quick-links" from original code 1 is implicitly handled by .footer ul -->
+            <li><a href="https://gcet.edu.in/img/downloads/NIRF%202025.pdf">NIRF</a></li>
+            <li><a href="https://gcet.edu.in/img/downloads/AICTE_LOI.pdf">AICTE Letter Of Intent</a></li>
+            <li><a href="#">NAAC</a></li>
+            <li><a href="#">NBA</a></li>
+            <li><a href="https://gcet.edu.in/naac/7.1.10_code%20of%20conduct.pdf">Code Of Conduct</a></li>
+            <li><a href="https://gcet.edu.in/img/downloads/Roles%20and%20Responsibilities.pdf">Roles and Responsibilities</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Reference Sites & Social Media (Added during modification) -->
+        <div class="footer-section">
+          <h2>🌐 REFERENCE SITES</h2>
+          <ul>
+            <li><a href="https://www.geethanjaliinstitutions.com" target="_blank">Geethanjali Institutions</a></li>
+            <li><a href="https://jntuh.ac.in" target="_blank">JNTUH Hyderabad</a></li>
+          </ul>
+          <div class="footer-icons">
+              <a href="https://www.facebook.com/gcetportal/"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://x.com/gctcportal"><i class="fab fa-x-twitter"></i></a>
+              <a href="https://www.instagram.com/gctcportal/?hl=en"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/school/gctcportal/posts/?feedView=all"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://www.youtube.com/watch?v=U_lvSRgBeoA&t=69s"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div><!-- End of footer-container -->
+
+      <div class="footer-bottom">
+        © 2025 Geethanjali College of Engineering and Technology.
+      </div>
+    </div><!-- End of footer -->
+
+    <!-- Note: Redundant Font Awesome script removed from here -->
 
     <script>
+        // --- Slider Script --- (Original Code 1 had similar logic)
         const images = [
             'https://i.pinimg.com/originals/07/44/76/074476209bb41a39913981195e17e363.gif',
+            'https://i.pinimg.com/originals/07/44/76/074476209bb41a39913981195e17e363.gif', // Text appears on this slide (index 1)
             'https://i.pinimg.com/originals/07/44/76/074476209bb41a39913981195e17e363.gif',
             'https://i.pinimg.com/originals/07/44/76/074476209bb41a39913981195e17e363.gif',
             'https://i.pinimg.com/originals/07/44/76/074476209bb41a39913981195e17e363.gif',
-            'https://i.pinimg.com/originals/07/44/76/074476209bb41a39913981195e17e363.gif',
-        ];
+        ]; // Original images array
 
         let index = 0;
         const slider = document.getElementById('slider');
@@ -491,11 +339,17 @@
 
         function updateImage() {
             slider.style.backgroundImage = `url(${images[index]})`;
-            if (index === 1) {
+            if (index === 1) { // Original logic checked index 1
                 middleText.style.display = "block";
                 middleText.style.animation = "dropText 1s forwards";
             } else {
-                middleText.style.animation = "fadeOutText 1s forwards";
+                // Original logic faded out differently, this ensures fade out if visible
+                 if (middleText.style.display === "block") {
+                    middleText.style.animation = "fadeOutText 1s forwards";
+                    setTimeout(() => { if(index !== 1) middleText.style.display = "none"; }, 1000);
+                 } else {
+                     middleText.style.display = "none";
+                 }
             }
         }
 
@@ -509,57 +363,62 @@
             updateImage();
         }
 
-        updateImage();
+        updateImage(); // Initial image load
     </script>
+
     <script>
+        // --- Services Slideshow Script --- (Original Code 1 had similar logic)
         const slideshowImages = [
-            'image1.jpg',
+            'image1.jpg', // Original image names
             'image2.jpg',
             'image3.jpg',
             'image4.jpg',
             'image5.jpg',
             'image6.jpg'
         ];
-    
+
         let slideIndex = 0;
         const slideshowImg = document.getElementById('slideshow-img');
-    
+
         function changeSlide() {
             slideIndex = (slideIndex + 1) % slideshowImages.length;
             slideshowImg.style.opacity = 0; // Fade out effect
             setTimeout(() => {
                 slideshowImg.src = slideshowImages[slideIndex];
                 slideshowImg.style.opacity = 1; // Fade in effect
-            }, 500);
+            }, 500); // Half second delay matches original logic
         }
-    
-        setInterval(changeSlide, 2000); // Change every 2 seconds
+
+        setInterval(changeSlide, 2000); // Change every 2 seconds (matches original)
     </script>
 
     <script>
+        // --- Header Title Switch Script --- (Original Code 1 had similar logic)
         const titleText = document.getElementById("titleText");
         let toggle = true;
-    
+
         function switchTitle() {
+            if (!titleText) return;
             titleText.classList.add("fade-out");
-    
+
             setTimeout(() => {
-                titleText.innerHTML = toggle 
-                    ? "<span>AIML Department</span>" 
+                titleText.innerHTML = toggle
+                    ? "<span>AIML Department</span>"
                     : "<span>Geethanjali College of Engineering and Technology</span>";
-                
+
                 titleText.classList.remove("fade-out");
                 titleText.classList.add("fade-in");
-    
+
+                // Original code had this inner timeout to remove fade-in, restoring it
                 setTimeout(() => {
                     titleText.classList.remove("fade-in"); // Ensure it resets for next cycle
                 }, 500);
-    
+
                 toggle = !toggle;
-            }, 500);
+            }, 500); // Matches original outer timeout duration
         }
-    
-        setInterval(switchTitle, 2000);
-    </script>   
+
+        setInterval(switchTitle, 2000); // Switch title every 2 seconds (matches original)
+    </script>
 </body>
 </html>
